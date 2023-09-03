@@ -1,0 +1,62 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">{{page_title}}</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>SN</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Gender</th>
+                                    <th>Division</th>
+                                    <th>Department</th>
+                                    <th>Avatar</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for employee in employees %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{employee.last_name}}, {{employee.first_name}}</td>
+                                    <td>{{employee.email}}</td>
+                                    <td>{{employee.gender}}</td>
+                                    <td>{{employee.employee.division.name}}</td>
+                                    <td>{{employee.employee.department.name}}</td>
+                                    <td>
+                                        {% if employee.profile_pic == ""  %}
+                                        No Image
+                                        {% else %}
+                                        <img class="img img-fluid mb-2" height="100" width="100"
+                                            src="{{employee.profile_pic}}" alt="">
+                                        {% endif %}
+                                    </td>
+                                    
+                                    <td><a href="{% url 'edit_employee' employee.employee.id %}" class="btn btn-primary">Edit</a> -
+                                        <a href="{% url 'delete_employee' employee.employee.id %}" class="btn btn-danger" onclick="return confirm('Are you sure about this ?')">Delete</a>
+
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

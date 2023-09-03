@@ -1,0 +1,132 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- general form elements -->
+                    <form method="POST">
+                        {% csrf_token %}
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">{{page_title}}</h3>
+                    </div>
+
+       
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="card-body">
+
+
+                     
+
+                 {{ form }}
+
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <button type="submit" id='update_salary' class="btn btn-primary btn-block">Update Salary</button>
+               
+                    </div>
+                </form>
+                </div>
+                <!-- /.card -->
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+
+{% block custom_js %}
+<script>
+    $(document).ready(function () {
+        $("#id_department").change(function () {
+            fetchEmployees();
+        });
+        $("#id_employee").change(function () {
+            fetch_employee_salary();
+        });
+        $("#id_ctc").hide();
+        $("#id_base").hide();
+        $("#update_salary").hide();
+        $('label[for="id_base"]').hide();
+        $('label[for="id_ctc"]').hide();
+        function fetchEmployees(){
+            var department = $("#id_department").val();
+            $("#id_employee").html(null);
+            if (department.length == 0){
+                return false;
+            }
+            $.ajax({
+                url: "{% url 'get_employees' %}",
+                type: 'POST',
+                data: {
+                    department: department,
+                }
+            }).done(function (response) {
+                var json_data = JSON.parse(response)
+                if (json_data.length < 1) {
+                    alert("No data to display")
+                } else {
+                    var div_data = "<option>Select Employee</option>"
+
+                    for (key in json_data) {
+                        div_data += "<option value='" + json_data[key]['id'] + "'>" + json_data[key]['name'] + " </option>"
+                    }
+             
+                    $("#id_employee").html(div_data)
+                }
+            }).fail(function (response) {
+                alert("Error in fetching employees")
+            })
+               }
+
+               function fetch_employee_salary(){
+                var employee = $("#id_employee").val()
+                var department = $("#id_department").val()
+                $("#id_base").val(null)
+                $("#id_ctc").val(null)
+                $("#id_ctc").hide()
+                $("#update_salary").hide()
+                $("#id_base").hide()
+                $('label[for="id_base"]').hide();
+                $('label[for="id_ctc"]').hide();
+                if (employee.length  == 0 || department.length == 0 || employee < 1 || department < 1){
+                    return false;
+                }
+                $.ajax({
+                    url: "{% url 'fetch_employee_salary' %}",
+                    type: 'POST',
+                    data: {
+                        department: department,
+                        employee:employee
+                    }
+                }).done(function (response) {
+                    if (response == 'False') {
+                        alert("No data to display")
+                    } else {
+                        var json_data = JSON.parse(response)
+                        
+                            $("#id_base").val(json_data['base'])
+                            $("#id_ctc").val(json_data['ctc'])
+                            $("#id_ctc").show()
+                            $("#id_base").show()
+                            $("#update_salary").show()
+                            $('label[for="id_base"]').show();
+                            $('label[for="id_ctc"]').show();
+
+                    }
+                }).fail(function (response) {
+                    alert("Error in fetching employees")
+                })
+               }
+
+    })
+</script>
+{% endblock custom_js %}

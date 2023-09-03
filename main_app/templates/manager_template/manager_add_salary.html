@@ -1,0 +1,99 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- general form elements -->
+                    <form method="POST">
+                        {% csrf_token %}
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">{{page_title}}</h3>
+                    </div>
+
+       
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="card-body">
+
+
+                        <div class="form-group">
+                            <label>Department</label>
+                            <select name="department" class="form-control" id='department'>
+                                <option value="">----</option>
+                                {% for department in departments  %}
+                                <option value="{{department.id}}">{{department.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+
+
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <button type="button" id='fetch_employee' class="btn btn-primary btn-block">Fetch
+                            Employees</button>
+                        <div class="form-group" id="employee_data">
+
+                        </div>
+                    </div>
+                </form>
+                </div>
+                <!-- /.card -->
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+
+{% block custom_js %}
+<script>
+    $(document).ready(function () {
+
+       
+        $("#fetch_employee").click(function () {
+            var department = $("#department").val()
+            $("#employee_data").html(null)
+            if (department.length == 0){
+                alert("Please select a department");
+                return false;
+            }
+            $.ajax({
+                url: "{% url 'get_employees' %}",
+                type: 'POST',
+                data: {
+                    department: department
+                }
+            }).done(function (response) {
+                var json_data = JSON.parse(response)
+                if (json_data.length < 1) {
+                    alert("No data to display")
+                } else {
+                    var div_data = "<hr/><div class='form-group'> <label> Employee List</label> <select class='employee_list form-control' name='employee_list'> "
+
+                    for (key in json_data) {
+                        div_data += "<option value='" + json_data[key]['id'] + "'>" + json_data[key]['name'] + " </option>"
+                    }
+                    div_data += "</select></div>"
+                    div_data += "<div class='form-group row'> <div class='col-md-6'> <label> Base Salary </label> <input class='form-control' name='base' placeholder='Base Salary' required type='number' /></div><div class='col-md-6'><label> CTC </label>  <input class='form-control' placeholder='CTC'  name='ctc' required type='number' /> </div></div><div class='form-group'><button id='save_attendance' class='btn btn-success' type='submit'>Save Salary</button></div></div>"
+                    $("#employee_data").html(div_data)
+                }
+            }).fail(function (response) {
+                alert("Error in fetching employees")
+            })
+
+
+
+
+        })
+    })
+</script>
+{% endblock custom_js %}

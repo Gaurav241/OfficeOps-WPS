@@ -1,0 +1,16 @@
+.vscode
+.idea
+*.pyc
+media/
+main_app/migrations/*
+!main_app/migrations/0001_initial.py
+db.sqlite3
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
