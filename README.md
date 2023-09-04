@@ -40,6 +40,42 @@ OfficeOps is a powerful Workforce Productivity Suite built using Django, designe
 
 SOON
 
+## Installation
+
+To set up this project on your local machine, follow these steps:
+
+1. Clone the repository:
+```
+git clone https://github.com/Gaurav241/OfficeOps-WPS.git
+```
+2. Navigate to the project directory:
+```
+cd OfficeOps-WPS
+```
+3. Create a virtual environment and activate it:
+```
+python -m venv venv
+source venv\Scripts\activate
+```
+4. Install dependencies:
+```
+pip install -r requirements.txt
+```
+5. Configure the database settings in settings.py and run migrations:
+```
+python manage.py makemigrations main_app
+python manage.py migrate
+```
+6. Create a superuser account:
+```
+python manage.py createsuperuser
+```
+7. Start the development server:
+```
+python manage.py runserver
+```
+8. Access the admin panel at http://localhost:8000/ and log in with the superuser credentials.
+
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to OfficeOps-WPS, feel free to open a pull request. We value your input and appreciate your help in making the app even better.
