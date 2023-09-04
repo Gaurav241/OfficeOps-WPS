@@ -2,6 +2,24 @@
 
 OfficeOps is a powerful Workforce Productivity Suite built using Django, designed to streamline HR and office management processes within your organization. This project allows CEOs, Managers, and Employees to manage various aspects of HR, including employee information, attendance, feedback, and leave requests.
 
+## Deployed Website
+
+You can access the deployed OfficeOps website at [officeops.onrender.com](https://officeops.onrender.com/).
+
+## Default Credentials
+
+For CEO:
+- Email: admin@admin.com
+- Password: admin
+
+For Manager:
+- Email: manager@manager.com
+- Password: manager
+
+For Employee:
+- Email: employee@employee.com
+- Password: employee
+
 ## Features
 
 ### CEO Can:
