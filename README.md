@@ -38,7 +38,22 @@ OfficeOps is a powerful Workforce Productivity Suite built using Django, designe
 
 ## Screenshots
 
-SOON
+| CEO                                        | Manager                                         | Employee                                     |
+|:------------------------------------------:|:-----------------------------------------------:|:--------------------------------------------:|
+| ![CEO_Home](/visuals/ss/CEO_Home.png) | ![Manager_Home](/visuals/ss/Manager_Home.png) | ![Employee_Home](/visuals/ss/Employee_Home.png)   |
+| DashBoard                           | DashBoard                            | DashBoard                              |
+| ![CEO_ManageEmployee](/visuals/ss/CEO_ManageEmployee.png) | ![Manager_AddSalary](/visuals/ss/Manager_AddSalary.png) | ![Employee_ViewSalary](/visuals/ss/Employee_ViewSalary.png)   |
+| Manage Employee                            | Add Salary                            | View Salary                             |
+| ![CEO_ManageManager](/visuals/ss/CEO_ManageManager.png) | ![Manager_TakeAttendance](/visuals/ss/Manager_TakeAttendance.png) | ![Employee_EditProfile](/visuals/ss/Employee_EditProfile.png)   |
+| Manage Manager                            | Take Attendance                            | Edit Profile      
+| ![CEO_EmployeeLeave](/visuals/ss/CEO_EmployeeLeave.png) | ![Manager_ViewAttendance](/visuals/ss/Manager_ViewAttendance.png) | ![Employee_Attendence](/visuals/ss/Employee_Attendence.png)   |
+| Leave Application Reply                           | Update Attendance                            | View Attendance                             |
+| ![CEO_ManagerLeave](/visuals/ss/CEO_ManagerLeave.png) | ![Manager_ApplyForLeave](/visuals/ss/Manager_ApplyForLeave.png) | ![Employee_ApplyForLeave](/visuals/ss/Employee_ApplyForLeave.png)   |
+| Leave Application Response                           | Apply For Leave                           | Apply For Leave                             |
+| ![CEO_EmployeeFeedbackReply](/visuals/ss/CEO_EmployeeFeedbackReply.png) | ![Manager_Feedback](/visuals/ss/Manager_Feedback.png) | ![Employee_Feedback](/visuals/ss/Employee_Feedback.png)   |
+| Feedback                            | Feedback                            | Feedback                             |
+| ![CEO_NotifyManager](/visuals/ss/CEO_NotifyManager.png) | ![Manager_Notification](/visuals/ss/Manager_Notification.png) | ![Employee_Notification](/visuals/ss/Employee_Notification.png)   |
+| Send Notification                            | View Notification                            | View Notification                            |
 
 ## Installation
 
