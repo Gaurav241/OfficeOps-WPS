@@ -35,16 +35,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    {% url 'admin_view_profile' as admin_view_profile %}
-                    <a href="{{admin_view_profile}}" class="nav-link {% if admin_view_profile == request.path %} active {% endif %}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            View/Edit Profile
-
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     {% url 'add_manager' as add_manager %}
                     <a href="{{add_manager}}" class="nav-link {% if add_manager == request.path %} active {% endif %}">
                         <i class="nav-icon fas fa-th"></i>
@@ -245,17 +235,6 @@
                 </li>
 
                 <li class="nav-item">
-                    {% url 'manager_view_profile' as manager_view_profile %}
-                    <a href="{{manager_view_profile}}" class="nav-link {% if manager_view_profile == request.path %} active {% endif %}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            View/Edit Profile
-
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
                     {% url 'manager_add_salary' as manager_add_salary %}
                     <a href="{{manager_add_salary}}" class="nav-link {% if manager_add_salary == request.path %} active {% endif %}">
                         <i class="nav-icon fas fa-th"></i>
@@ -359,17 +338,6 @@
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Home
-
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    {% url 'employee_view_profile' as employee_view_profile %}
-                    <a href="{{employee_view_profile}}" class="nav-link {% if employee_view_profile == request.path %} active {% endif %}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            View/Edit Profile
 
                         </p>
                     </a>
