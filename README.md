@@ -1,3 +1,17 @@
+## Table of Contents
+
+1. [Introduction](#officeops-workforce-productivity-suite)
+   - [Deployed Website](#deployed-website)
+   - [Default Credentials](#default-credentials)
+2. [Features](#features)
+   - [CEO Features](#ceo-can)
+   - [Manager Features](#manager-can)
+   - [Employee Features](#employee-can)
+3. [Screenshots](#screenshots)
+4. [Installation](#installation)
+5. [Contributions](#contributions)
+6. [License](#license)
+
 # OfficeOps: Workforce Productivity Suite
 
 OfficeOps is a powerful Workforce Productivity Suite built using Django, designed to streamline HR and office management processes within your organization. This project allows CEOs, Managers, and Employees to manage various aspects of HR, including employee information, attendance, feedback, and leave requests.
