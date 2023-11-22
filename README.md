@@ -86,10 +86,19 @@ git clone https://github.com/Gaurav241/OfficeOps-WPS.git
 python -m venv venv
 venv\Scripts\activate
 ```
-3. Navigate to the project directory:
+3. Navigate to the project directory and setup environment:
 ```
 cd OfficeOps-WPS
 ```
+Create .env File: Create a file named .env in the project directory. Add the following content to the .env file:
+or just rename .env.example to .env
+```
+DATABASE_URL = "postgres://USER:PASSWORD@localhost:5432/DB_NAME"
+SECRET_KEY = "your_secret_key"
+```
+NOTE: Make sure to replace YOUR_USER, YOUR_PASSWORD, YOUR_DB_NAME with your actual database credentials. 
+Also, substitute YOUR_SECRET_KEY with your desired secret key.
+
 4. Install dependencies:
 ```
 pip install -r requirements.txt
