@@ -81,14 +81,14 @@ To set up this project on your local machine, follow these steps:
 ```
 git clone https://github.com/Gaurav241/OfficeOps-WPS.git
 ```
-2. Navigate to the project directory:
-```
-cd OfficeOps-WPS
-```
-3. Create a virtual environment and activate it:
+2. Create a virtual environment and activate it:
 ```
 python -m venv venv
-source venv\Scripts\activate
+venv\Scripts\activate
+```
+3. Navigate to the project directory:
+```
+cd OfficeOps-WPS
 ```
 4. Install dependencies:
 ```
