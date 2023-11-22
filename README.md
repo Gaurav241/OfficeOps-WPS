@@ -115,4 +115,4 @@ Contributions are welcome! If you'd like to contribute to OfficeOps-WPS, feel fr
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE.txt).
