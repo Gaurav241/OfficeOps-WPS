@@ -46,18 +46,6 @@
                 </li>
 
                 <li class="nav-item">
-                    {% url 'manage_manager' as manage_manager %}
-                    {% url 'edit_manager' manager_id as edit_manager %}
-                    <a href="{{manage_manager}}"
-                        class="nav-link {% if manage_manager == request.path or request.path == edit_manager %} active {% endif %}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Manage Manager
-
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     {% url 'add_employee' as add_employee%}
                     <a href="{{add_employee}}" class="nav-link  {% if add_employee == request.path %} active {% endif %}">
                         <i class="nav-icon fas fa-th"></i>
@@ -67,19 +55,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    {% url 'manage_employee' as manage_employee %}
-                    {% url 'edit_employee' employee_id as edit_employee %}
 
-                    <a href="{{manage_employee}}"
-                        class="nav-link  {% if edit_employee == request.path or manage_employee == request.path %} active {% endif %}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Manage Employee
-
-                        </p>
-                    </a>
-                </li>
                 <li class="nav-item">
                     {% url 'add_division' as add_division %}
                     <a href="{{add_division}}" class="nav-link  {% if add_division == request.path %} active {% endif %}">
